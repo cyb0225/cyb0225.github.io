@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2022/12/15/hello-world/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/12/15/hello-world/","path":"2022/12/15/hello-world/","title":"Hello World"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hello World | Yeebing Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yeebing Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start-1"><span class="nav-number">2.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post-1"><span class="nav-number">2.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server-1"><span class="nav-number">2.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files-1"><span class="nav-number">2.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites-1"><span class="nav-number">2.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#title-Hello-Worldcategories-go-%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98tags-hello-world"><span class="nav-number">3.</span> <span class="nav-text">title: Hello Worldcategories:- go 语言实战tags:- hello world</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start-2"><span class="nav-number">4.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post-2"><span class="nav-number">4.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server-2"><span class="nav-number">4.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files-2"><span class="nav-number">4.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites-2"><span class="nav-number">4.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go-Study"><span class="nav-number"></span> <span class="nav-text">Go-Study</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yeebing</p>
+  <div class="site-description" itemprop="description">share golang coding</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/15/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yeebing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeebing Blog">
+      <meta itemprop="description" content="share golang coding">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hello World | Yeebing Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hello World
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-12-15 18:54:19 / 修改时间：22:21:32" itemprop="dateCreated datePublished" datetime="2022-12-15T18:54:19+08:00">2022-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/go-%E8%AF%AD%E8%A8%80%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">go 语言实战</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<hr>
+<p>title: Hello World<br>categories: </p>
+<ul>
+<li>go 语言实战<br>tags:</li>
+<li>hello world</li>
+</ul>
+<span id="more"></span>
+
+<hr>
+<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start-1"><a href="#Quick-Start-1" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post-1"><a href="#Create-a-new-post-1" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server-1"><a href="#Run-server-1" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files-1"><a href="#Generate-static-files-1" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites-1"><a href="#Deploy-to-remote-sites-1" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<hr>
+<h2 id="title-Hello-Worldcategories-go-语言实战tags-hello-world"><a href="#title-Hello-Worldcategories-go-语言实战tags-hello-world" class="headerlink" title="title: Hello Worldcategories:- go 语言实战tags:- hello world"></a>title: Hello World<br>categories:<br>- go 语言实战<br>tags:<br>- hello world</h2><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start-2"><a href="#Quick-Start-2" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post-2"><a href="#Create-a-new-post-2" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server-2"><a href="#Run-server-2" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files-2"><a href="#Generate-static-files-2" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites-2"><a href="#Deploy-to-remote-sites-2" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>Junedayday Blog<br>六月天天的个人博客</p>
+<p>文章目录 站点概览</p>
+<ol>
+<li>概览</li>
+<li>官方实现</li>
+<li>分析UnaryServerInterceptor</li>
+<li>示例拦截器</li>
+<li>小结<br>  Go语言学习 - RPC篇:gRPC拦截器剖析<br>发表于 2022-11-17<br> 分类于 成长分享</li>
+</ol>
+<p>概览<br>我们在前几讲提到过，优秀的RPC框架都提供了middleware的能力，可以减少很多重复代码的编写。在gRPC-Gateway的方案里，包括了两块中间件的能力：</p>
+<p>gRPC中的ServerOption，是所有gRPC+HTTP都会被处理<br>gRPC-Gateway中的ServeMuxOption，只有HTTP协议会被处理<br>今天，我们先关注共同部分的ServerOption，它提供的能力最为全面，让我们一起了解下。</p>
+<p>官方实现<br>在官方文件google.golang.org&#x2F;grpc&#x2F;server.go路径下，给出了很多公开的ServerOption方法。从本质上来说，这些方法都是为了修改服务端的一个核心数据结构体：</p>
+<p>type serverOptions struct {<br>    creds                 credentials.TransportCredentials<br>    codec                 baseCodec<br>    cp                    Compressor<br>    dc                    Decompressor<br>    unaryInt              UnaryServerInterceptor<br>    streamInt             StreamServerInterceptor<br>    chainUnaryInts        []UnaryServerInterceptor<br>    chainStreamInts       []StreamServerInterceptor<br>    binaryLogger          binarylog.Logger<br>    inTapHandle           tap.ServerInHandle<br>    statsHandlers         []stats.Handler<br>    maxConcurrentStreams  uint32<br>    maxReceiveMessageSize int<br>    maxSendMessageSize    int<br>    unknownStreamDesc     *StreamDesc<br>    keepaliveParams       keepalive.ServerParameters<br>    keepalivePolicy       keepalive.EnforcementPolicy<br>    initialWindowSize     int32<br>    initialConnWindowSize int32<br>    writeBufferSize       int<br>    readBufferSize        int<br>    connectionTimeout     time.Duration<br>    maxHeaderListSize     *uint32<br>    headerTableSize       *uint32<br>    numServerWorkers      uint32<br>}<br>不难从命名中推断到，上述结构体包含了认证、编解码、压缩、日志等各种配置，其中在初始化时有一些默认值。我们将目光聚焦于核心middleware能力的实现 - 拦截器（Interceptor）。</p>
+<p>gRPC协议提供了两种RPC调用的方式：</p>
+<p>Unary普通的单次调用<br>Stream流式调用<br>我们框架的RPC调用都来自gRPC-Gateway对HTTP协议的转发，是属于Unary这块，所以我们聚焦于UnaryServerInterceptor即可。而chainUnaryInts的数据结构为[]UnaryServerInterceptor，即支撑了链式middleware的调用，是自定义入口的关键。</p>
+<p>使用示例代码：</p>
+<p>s :&#x3D; grpc.NewServer(<br>        grpc.ChainUnaryInterceptor(<br>            &#x2F;&#x2F; 各个拦截器<br>        ),<br>)<br>分析UnaryServerInterceptor<br>我们先一起看看这个函数的签名：</p>
+<p>type UnaryServerInterceptor func(ctx context.Context, req interface{}, info *UnaryServerInfo, handler UnaryHandler) (resp interface{}, err error)<br>示例如下：</p>
+<p>func ExampleInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {<br>    &#x2F;&#x2F; 1 - 前处理</p>
+<p>  &#x2F;&#x2F; 2 - 调用具体实现<br>    resp, err &#x3D; handler(ctx, req)<br>  &#x2F;&#x2F; 3 - 后处理</p>
+<pre><code>return 
+</code></pre>
+<p>}<br>运行逻辑<br>可以看到，整个代码分三步进行，其中handler这部分的实现是开发者编写的业务逻辑。</p>
+<p>而当存在链式的拦截器时，这部分的实现类似于先入后出的逻辑：</p>
+<p>前处理1 -&gt; 前处理2 -&gt; … -&gt; 前处理n<br>具体代码实现<br>后处理n -&gt; 后处理n-1 -&gt; … -&gt; 后处理1<br>参数说明<br>ctx - 上下文<br>req - 入参<br>info - Unray调用的信息，主要是方法名<br>handler - 正常处理的函数<br>resp - 出参<br>err - 错误<br>我们要了解这6个参数，才能真正地理解gRPC，进而合理地使用拦截器。下面，我挑选3个重点进行描述：</p>
+<p>我们无法直接使用ctx提取值，而是要用metadata.FromIncomingContext(ctx)提取出gRPC的metadata、再塞入到ctx中。什么是metadata呢？你可以把它简单地类比到HTTP的Header。<br>req与resp的类型与protobuf中定义的方法对应。不难猜到，对数据的序列化、反序列化等操作，是在拦截器之前工作的。<br>resp与err这两个返回参数尽可能规范：当err !&#x3D; nil时，调用方只需关注err；当err &#x3D;&#x3D; nil时，resp才有意义。<br>这里，我再额外补充两个容易陷入误区的点：</p>
+<p>gRPC-Gateway中也有拦截器的实现，但我们尽可能只做协议的转换：将HTTP Header转换到gRPC-Gateway。这样可以保证gRPC和HTTP的调用，数据处理逻辑用一个拦截器就可以完成，如用户认证。<br>尽可能只用err来表示错误，而不要在resp里封装errno等字段（我在下一篇也会给出对应兼容的方案）。这里的error用google.golang.org&#x2F;grpc&#x2F;internal&#x2F;status生成，如status.Error(codes.Unauthenticated, “用户校验失败”)，这样错误才能兼容框架，同时具备错误码与错误信息。<br>示例拦截器<br>分析完上述内容后，我们结合一些经典的拦截器，方便大家了解它的价值：</p>
+<p>日志拦截器<br>func ServerLoggingInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {<br>    &#x2F;&#x2F; 进入打印日志，确认入参<br>    log.Info()</p>
+<pre><code>resp, err = handler(ctx, req)
+
+// 处理完打印日志，包括出参和error
+if err != nil &#123;
+    log.Error()
+    return
+&#125;
+log.Info()
+return
+</code></pre>
+<p>}<br>一个RPC调用最终会落成2个日志：</p>
+<p>进入时的Info日志<br>返回时<br>正常，则打印Info日志<br>有错误，则打印Error日志<br>日志拦截器的对我们的日常开发意义非常大，核心思路是：通过日志的一入一出，快速定位问题。常见的如：</p>
+<p>先看进入时的日志，看看打印的参数是否如预期，如果有错往往先从协议排查，如字段命名<br>再看返回的日志，如果打印的输出和预期的一致，那往往是调用方的协议问题，如字段未解析<br>如果进入时的日志正确，但返回的打印异常，那就是handler的实现有问题<br>recovery拦截器<br>func ServerRecoveryInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {<br>    defer func() {<br>        if e :&#x3D; recover(); e !&#x3D; nil {<br>            const size &#x3D; 64 &lt;&lt; 10<br>            stacktrace :&#x3D; make([]byte, size)<br>            stacktrace &#x3D; stacktrace[:runtime.Stack(stacktrace, false)]<br>            &#x2F;&#x2F; error及堆栈进行日志打印<br>      log.Error()</p>
+<pre><code>        err = status.Error(codes.Unavailable, &quot;系统异常&quot;)
+    &#125;
+&#125;()
+
+return handler(ctx, req)
+</code></pre>
+<p>}<br>随着项目的迭代，handler里的实现很有可能出现会导致panic的代码，我们必须对这种异常兜底，而不是随便导致程序崩溃。</p>
+<p>示例代码就是捕获对应的panic，输出到日志，返回给调用方系统异常。recovery是保证HTTP服务稳定的重要实现，其中的日志对开发者事后排查问题也提供了参考，是一个必备的工具利器。</p>
+<p>用户认证拦截器<br>const (<br>  USER_TOKEN    &#x3D; “USER_TOKEN”<br>    CTX_USERNAME  &#x3D; “CTX_USERNAME”<br>)</p>
+<p>func ServerAuthUnaryInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {<br>  &#x2F;&#x2F; 1. 提取出metadata<br>    md, ok :&#x3D; metadata.FromIncomingContext(ctx)<br>    if !ok {<br>        return nil, status.Error(codes.Unauthenticated, “用户校验失败”)<br>    }<br>  &#x2F;&#x2F; 2. parseUserName 从对应的metadata的Key里提取信息，解析出用户名<br>    userName, err :&#x3D; parseUserName(md.Get(USER_TOKEN)[0])<br>    if err !&#x3D; nil {<br>        return nil, status.Error(codes.Unauthenticated, “用户校验失败”)<br>    }<br>  &#x2F;&#x2F; 3. 将用户名塞入到ctx中<br>    ctx &#x3D; context.WithValue(ctx, CTX_USERNAME, userName)</p>
+<p>  &#x2F;&#x2F; 4. 继续逻辑处理<br>    return handler(ctx, req)<br>}</p>
+<p>&#x2F;&#x2F; 在handler里，调用这个函数可以提取到用户名<br>func GetUserName(ctx context.Context) string {<br>    return ctx.Value(CTX_USERNAME).(string)<br>}<br>相关的步骤已经在代码注释里写得很清楚了，这里再补充3个细节：</p>
+<p>metadata的USER_TOKEN这个Key，按调用方，来源分2种情况：<br>如果调用方是gRPC，那就要求调用方在metadata里填充这个Key<br>如果调用方是HTTP，需要人工将HTTP的Header映射到gRPC的metadata，这部分就是在gRPC-Gateway的中间件里实现<br>示例中的1与2会对未认证的请求直接拦截 - 不会调用到具体handler的代码，直接返回错误给调用方<br>如果服务的接口要区分认证与无需认证，建议从info.FullMethod入手，即调用的方法名，也就是增加一段if-else的判断逻辑<br>数据校验拦截器<br>&#x2F;&#x2F; PGV里的结构，都实现了这个方法<br>type Validator interface {<br>    ValidateAll() error<br>}</p>
+<p>func ServerValidationUnaryInterceptor(ctx context.Context, req interface{}, info *grpc.UnaryServerInfo, handler grpc.UnaryHandler) (resp interface{}, err error) {<br>  &#x2F;&#x2F; 如果接口实现了PGV的方法，就认为必须要进行校验<br>    if r, ok :&#x3D; req.(Validator); ok {<br>        err &#x3D; r.ValidateAll()<br>    &#x2F;&#x2F; 校验失败，则打印错误并返回参数校验失败<br>        if err !&#x3D; nil {<br>            log.Error<br>            return nil, status.Error(codes.InvalidArgument, “参数校验失败”)<br>        }<br>    }</p>
+<pre><code>return handler(ctx, req)
+</code></pre>
+<p>}<br>在protobuf里有一个非常有用的插件 - PGV，可参考Github，它能帮助开发者快速实现对应的参数校验：</p>
+<p>简单的如整型要大于1，字符串要非空<br>复杂的如邮箱、IP等格式检查<br>但是，它需要开发者手工判断一次。这时，我们就可以利用拦截器+接口，组装出一个参数校验的拦截器，而无需再每个handler中都去判定。</p>
+<p>这个实现很简洁，也充分利用了接口的特性，是一个经典的拦截器实现。</p>
+<p>小结<br>今天，我们对gRPC中的拦截器进行了分析，并给出了4个经典的拦截器代码实现。而gin等框架中的middleware实现思路也基本与其一致，差别主要在参数类型不一样。</p>
+<p>gRPC拦截器能有效地收敛很多重复代码，保证框架的统一与高效；相反地，如果某个公共能力无法用拦截器实现，就非常值得我们反思了。</p>
+<p>接下来，我们将视角转移到gRPC-Gateway方案，看看在针对HTTP方面又有哪些高效的middleware。</p>
+<p>Github: <a target="_blank" rel="noopener" href="https://github.com/Junedayday/code_reading">https://github.com/Junedayday/code_reading</a></p>
+<p>Blog: <a target="_blank" rel="noopener" href="http://junes.tech/">http://junes.tech/</a></p>
+<p>Bilibili: <a target="_blank" rel="noopener" href="https://space.bilibili.com/293775192">https://space.bilibili.com/293775192</a></p>
+<p>公众号: golangcoding</p>
+<p>二维码</p>
+<h1 id="Go-Study"><a href="#Go-Study" class="headerlink" title="Go-Study"></a>Go-Study</h1><p> Go语言学习 - RPC篇:深入gRPC-Gateway-探索常用数据类型<br>Go语言技巧 - 17.【Go工程化测试】业务项目中的Go单元测试心得<br>© 2022  Junedayday<br>由 Hexo &amp; NexT.Gemini 强力驱动<br>浙ICP备 - 19051676号-1</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hello-world/" rel="tag"># hello world</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/12/15/hello-world-1/" rel="next" title="hello_world">
+                  hello_world <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yeebing</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
