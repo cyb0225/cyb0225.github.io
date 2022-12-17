@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2022/12/17/%E8%AE%A4%E8%AF%86go%E7%9A%84time%E5%8C%85/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2022/12/17/%E8%AE%A4%E8%AF%86go%E7%9A%84time%E5%8C%85/","path":"2022/12/17/认识go的time包/","title":"认识go的time包（1）——坑人的format"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>认识go的time包（1）——坑人的format | Yeebing Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yeebing Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%91%E7%82%B9%E5%B1%95%E7%A4%BA"><span class="nav-number">1.1.</span> <span class="nav-text">坑点展示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%AF%AD%E8%A8%80%E7%9A%84format%E6%96%B9%E5%BC%8F"><span class="nav-number">2.</span> <span class="nav-text">其他语言的format方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%88%E4%BB%8E%E8%87%AA%E8%BA%AB%E5%87%BA%E5%8F%91%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">如何解决（从自身出发）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E5%87%86%E5%BA%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">标准库实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yeebing</p>
+  <div class="site-description" itemprop="description">share golang coding</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/17/%E8%AE%A4%E8%AF%86go%E7%9A%84time%E5%8C%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yeebing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeebing Blog">
+      <meta itemprop="description" content="share golang coding">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="认识go的time包（1）——坑人的format | Yeebing Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          认识go的time包（1）——坑人的format
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-17 22:04:12" itemprop="dateCreated datePublished" datetime="2022-12-17T22:04:12+08:00">2022-12-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-12-18 00:14:10" itemprop="dateModified" datetime="2022-12-18T00:14:10+08:00">2022-12-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">Go标准库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/time/" itemprop="url" rel="index"><span itemprop="name">time</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Go time 包是一大痛点，主要原因就是Time类型的format方式。所以我会以Format作为Go time包的切入点。</p>
+<h3 id="坑点展示"><a href="#坑点展示" class="headerlink" title="坑点展示"></a>坑点展示</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n := time.Now()</span><br><span class="line">fmt.Println(n)</span><br><span class="line">fmt.Println(n.Format(<span class="string">&quot;2006-01-02 15:04:05&quot;</span>))</span><br><span class="line">fmt.Println(n.Format(<span class="string">&quot;2007-01-02 15:04:05&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="https://s2.loli.net/2022/12/17/t6k7OCgdfTYKrmG.png" alt="image-20221217222159791"></p>
+<p>仔细看我第四行代码将2006改成了2007，format出来的year就是一个莫名其妙的数字。</p>
+<p>原因是Go要求format必须是2006-01-02 15:04:05 这些数字，即年份不能用其他年份表示，月份、日期也是如此。</p>
+<span id="more"></span>
+
+<h2 id="其他语言的format方式"><a href="#其他语言的format方式" class="headerlink" title="其他语言的format方式"></a>其他语言的format方式</h2><p>这是一段Java的时间格式化代码。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StringBuilder</span> <span class="variable">sb</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">sb.append(<span class="string">&quot;yyyy年MM月dd日 HH:mm:ss&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; 上下午标志 a&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; E&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; 一年中的第D天&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; 一月中的第F个星期&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; 一年中的第w个星期&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; 一月中的第W个星期&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; Z&quot;</span>)</span><br><span class="line">    .append(<span class="string">&quot; z&quot;</span>);</span><br><span class="line"><span class="type">SimpleDateFormat</span> <span class="variable">sdf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleDateFormat</span>(sb.toString());</span><br><span class="line"><span class="type">String</span> <span class="variable">dateString</span> <span class="operator">=</span> sdf.format(<span class="keyword">new</span> <span class="title class_">Date</span>());</span><br><span class="line">System.out.println(dateString);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://s2.loli.net/2022/12/17/XGdUSMhJky864VY.png" alt="img"></p>
+<p>Java 采用的yymmdd的方式来实现日期格式化。通俗来讲就是使用特定的字符来代替时间，如y代表year。</p>
+<p><img src="https://s2.loli.net/2022/12/17/On9ceINwVv2TXhQ.png" alt="img"></p>
+<p>它将各个常用及不常用但必须的日期格式（如年、月、日，星期、周数、时区等）都用字符表示出来，使用者只管考虑怎么连接这些字符，得到想要的日期字符串。难怪Go的日期格式化饱受诟病。</p>
+<p>Go 官方的解释是这样的：<code>Jan 2 3:04 pm 06 -0700 </code>这样就是完美的1 2 3 4 5 6 7</p>
+<h2 id="如何解决（从自身出发）"><a href="#如何解决（从自身出发）" class="headerlink" title="如何解决（从自身出发）"></a>如何解决（从自身出发）</h2><p><strong>1.这串奇怪的时间的记忆方法</strong></p>
+<p>官方给出的记忆方法（但对我来说也不好记）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1: month (January, Jan, 01, etc)</span><br><span class="line">2: day</span><br><span class="line">3: hour (15 is 3pm on a 24 hour clock)</span><br><span class="line">4: minute</span><br><span class="line">5: second</span><br><span class="line">6: year (2006)</span><br><span class="line">7: timezone (GMT-7 is MST)</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.利用好IDE的语法提示</strong></p>
+<p><img src="https://s2.loli.net/2022/12/17/iEojDtULslBJqG4.png" alt="image-20221217222517160"></p>
+<p>第二处因为没有采用2006的年份，Goland很贴心的给出了灰色的标记。</p>
+<p>而第三处虽然删去了年份的前两位，月份、日期的前导“0”，但是依旧是可以正常使用的，Goland也贴心的没有给提示。</p>
+<p><strong>3. 使用标准库提供的常量</strong></p>
+<p>既然自己容易写错，那么可以使用官方提供的一系列常量来解决。但是如何记住这些常量和他们的用法又是一种心理负担了，而且我自认为这些常量的名称往往过于“抽象”，可能还没直接写数字来得方便。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	ANSIC       = <span class="string">&quot;Mon Jan _2 15:04:05 2006&quot;</span></span><br><span class="line">	UnixDate    = <span class="string">&quot;Mon Jan _2 15:04:05 MST 2006&quot;</span></span><br><span class="line">	RubyDate    = <span class="string">&quot;Mon Jan 02 15:04:05 -0700 2006&quot;</span></span><br><span class="line">	RFC822      = <span class="string">&quot;02 Jan 06 15:04 MST&quot;</span></span><br><span class="line">	RFC822Z     = <span class="string">&quot;02 Jan 06 15:04 -0700&quot;</span> <span class="comment">// RFC822 with numeric zone</span></span><br><span class="line">	RFC850      = <span class="string">&quot;Monday, 02-Jan-06 15:04:05 MST&quot;</span></span><br><span class="line">	RFC1123     = <span class="string">&quot;Mon, 02 Jan 2006 15:04:05 MST&quot;</span></span><br><span class="line">	RFC1123Z    = <span class="string">&quot;Mon, 02 Jan 2006 15:04:05 -0700&quot;</span> <span class="comment">// RFC1123 with numeric zone</span></span><br><span class="line">	RFC3339     = <span class="string">&quot;2006-01-02T15:04:05Z07:00&quot;</span></span><br><span class="line">	RFC3339Nano = <span class="string">&quot;2006-01-02T15:04:05.999999999Z07:00&quot;</span></span><br><span class="line">	Kitchen     = <span class="string">&quot;3:04PM&quot;</span></span><br><span class="line">	<span class="comment">// Handy time stamps.</span></span><br><span class="line">	Stamp      = <span class="string">&quot;Jan _2 15:04:05&quot;</span></span><br><span class="line">	StampMilli = <span class="string">&quot;Jan _2 15:04:05.000&quot;</span></span><br><span class="line">	StampMicro = <span class="string">&quot;Jan _2 15:04:05.000000&quot;</span></span><br><span class="line">	StampNano  = <span class="string">&quot;Jan _2 15:04:05.000000000&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	_                        = <span class="literal">iota</span></span><br><span class="line">	stdLongMonth             = <span class="literal">iota</span> + stdNeedDate  <span class="comment">// &quot;January&quot;</span></span><br><span class="line">	stdMonth                                       <span class="comment">// &quot;Jan&quot;</span></span><br><span class="line">	stdNumMonth                                    <span class="comment">// &quot;1&quot;</span></span><br><span class="line">	stdZeroMonth                                   <span class="comment">// &quot;01&quot;</span></span><br><span class="line">	stdLongWeekDay                                 <span class="comment">// &quot;Monday&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="标准库实现"><a href="#标准库实现" class="headerlink" title="标准库实现"></a>标准库实现</h2><p>在好奇心的驱使下，我想看看标准库的time包是怎么实现Format这个函数的，为什么会产生这个效果。</p>
+<p>大致原理就是使用一个for循环去拆解用户提供的format字符串，每次拆解出一个单位（标准库认为的可以替换的一些字符），如何使用switch case 来判断该字符属于上面提到的哪种常量，根据常量定义的规则（如stdZeroMonth表示月份有前导“0”）将格式化后的日期append到要返回的字符串上。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缩略后的源码</span></span><br><span class="line"><span class="comment">// 入参layout就是用户要格式化的日期。</span></span><br><span class="line"><span class="comment">// b 这里可以简单理解成要输出的日期字符串。</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t Time)</span></span> AppendFormat(b []<span class="type">byte</span>, layout <span class="type">string</span>) []<span class="type">byte</span> &#123;</span><br><span class="line">	<span class="comment">// ... 做一些处理，大概是获取原始时间t的一些状态，方便后面状态机处理</span></span><br><span class="line">	<span class="comment">// Each iteration generates one std value.</span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span> layout != <span class="string">&quot;&quot;</span> &#123; <span class="comment">// for 循环拆解layout</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获取词法单元std， 词法单元的前缀prefix，以及后面未处理的内容（重新赋值给layout，用于下次处理）</span></span><br><span class="line">        <span class="comment">// 那么nextStdChunk里面就是一个更纯粹的词法分析器，比较一个个‘字符’，来获取词法单元。</span></span><br><span class="line">		prefix, std, suffix := nextStdChunk(layout)</span><br><span class="line">		<span class="keyword">if</span> prefix != <span class="string">&quot;&quot;</span> &#123;</span><br><span class="line">			b = <span class="built_in">append</span>(b, prefix...)</span><br><span class="line">		&#125;</span><br><span class="line">        </span><br><span class="line">		<span class="keyword">if</span> std == <span class="number">0</span> &#123;</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line">		&#125;</span><br><span class="line">        </span><br><span class="line">		layout = suffix</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Compute year, month, day if needed.</span></span><br><span class="line">		<span class="keyword">if</span> year &lt; <span class="number">0</span> &amp;&amp; std&amp;stdNeedDate != <span class="number">0</span> &#123;</span><br><span class="line">			year, month, day, yday = absDate(abs, <span class="literal">true</span>)</span><br><span class="line">			yday++</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Compute hour, minute, second if needed.</span></span><br><span class="line">		<span class="keyword">if</span> hour &lt; <span class="number">0</span> &amp;&amp; std&amp;stdNeedClock != <span class="number">0</span> &#123;</span><br><span class="line">			hour, min, sec = absClock(abs)</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">        <span class="comment">// 判断该std属于哪个部分</span></span><br><span class="line">		<span class="keyword">switch</span> std &amp; stdMask &#123;</span><br><span class="line">		<span class="keyword">case</span> stdYear:</span><br><span class="line">				<span class="comment">// ....</span></span><br><span class="line">		<span class="keyword">case</span> stdLongYear:</span><br><span class="line">			b = appendInt(b, year, <span class="number">4</span>)</span><br><span class="line">		<span class="keyword">case</span> stdMonth:</span><br><span class="line">			b = <span class="built_in">append</span>(b, month.String()[:<span class="number">3</span>]...)</span><br><span class="line">		<span class="keyword">case</span> stdLongMonth:</span><br><span class="line">			m := month.String()</span><br><span class="line">			b = <span class="built_in">append</span>(b, m...)</span><br><span class="line">		<span class="keyword">case</span> stdNumMonth:</span><br><span class="line">			b = appendInt(b, <span class="type">int</span>(month), <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">case</span> stdZeroMonth:</span><br><span class="line">			b = appendInt(b, <span class="type">int</span>(month), <span class="number">2</span>)</span><br><span class="line">		<span class="keyword">case</span> stdWeekDay:</span><br><span class="line">			b = <span class="built_in">append</span>(b, absWeekday(abs).String()[:<span class="number">3</span>]...)</span><br><span class="line">		<span class="keyword">case</span> stdLongWeekDay:</span><br><span class="line">			s := absWeekday(abs).String()</span><br><span class="line">			b = <span class="built_in">append</span>(b, s...)</span><br><span class="line">		<span class="keyword">case</span> stdDay:</span><br><span class="line">			b = appendInt(b, day, <span class="number">0</span>)</span><br><span class="line">		<span class="comment">// ..... 很多很多</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> b</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这个就和编程语言的词法分析很像了，按照词法单元去拆分代码，同时使用switch来判断匹配到了哪个词法，根据不同的词法进行不同的处理。</p>
+<p>其他语言的yymmdd的日期格式化方式应该跟Go的实现角度差不多，只不过Go采用了2006-01-02 来代替yyyy-mm-dd（猜想，没有看Java代码证实）</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p>Go源码</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27093465/article/details/53034427">https://blog.csdn.net/qq_27093465/article/details/53034427</a></p>
+<p><a target="_blank" rel="noopener" href="https://pkg.go.dev/time#Parse">https://pkg.go.dev/time#Parse</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/366830553">https://www.zhihu.com/question/366830553</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8B%93%E5%B1%95/" rel="tag"># 拓展</a>
+              <a href="/tags/%E6%9C%89%E5%9D%91/" rel="tag"># 有坑</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yeebing</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
