@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="http://example.com/2023/03/06/%E5%88%9D%E5%A7%8Bhttp/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2023/03/06/%E5%88%9D%E5%A7%8Bhttp/","path":"2023/03/06/初始http/","title":"初始http"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>初始http | Yeebing Blog</title>
+  
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Yeebing Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yeebing Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">http 状态码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%AD%97%E6%AE%B5"><span class="nav-number">2.</span> <span class="nav-text">常见字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#restful-%E5%8D%8F%E8%AE%AE"><span class="nav-number">3.</span> <span class="nav-text">restful 协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E7%BC%93%E5%AD%98"><span class="nav-number">4.</span> <span class="nav-text">http 缓存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-%E5%8A%A0%E5%AF%86-ssl-x2F-tls"><span class="nav-number">5.</span> <span class="nav-text">http 加密 (ssl&#x2F;tls)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%8C%96%E5%8F%B2"><span class="nav-number">6.</span> <span class="nav-text">进化史</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">yeebing</p>
+  <div class="site-description" itemprop="description">share golang coding</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/06/%E5%88%9D%E5%A7%8Bhttp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="yeebing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeebing Blog">
+      <meta itemprop="description" content="share golang coding">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="初始http | Yeebing Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初始http
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-06 23:00:13 / 修改时间：23:07:09" itemprop="dateCreated datePublished" datetime="2023-03-06T23:00:13+08:00">2023-03-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index"><span itemprop="name">计算机网络</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h3><p>大类:</p>
+<ul>
+<li>1xx 请求正处于处理阶段</li>
+<li>2xx 请求成功<ul>
+<li>200 标准的请求成功</li>
+<li>204 请求成功但是没有body信息</li>
+<li>206 是应⽤于 HTTP 分块下载或断点续传，表示响应返回的 body 数据并不是资源的全部，而是其中的⼀部分。</li>
+</ul>
+</li>
+<li>3xx 重定向，资源位置发生改变<ul>
+<li><p>301 永久重定向</p>
+</li>
+<li><p>302 临时重定向</p>
+<blockquote>
+<p>以上两种在返回响应头里有 Location  字段，指明后续要跳转的 URL.</p>
+</blockquote>
+</li>
+<li><p>304 缓存控制，不需要跳转，客户端只需要使用本地缓存即可，后面有介绍 http 缓存</p>
+</li>
+<li><p>307 临时重定向，但请求方法不变</p>
+</li>
+<li><p>308 永久重定向，但请求方法不变</p>
+</li>
+</ul>
+</li>
+<li>4xx 客户端发生的错误<ul>
+<li>400 笼统的客户端错误</li>
+<li>403 客户端禁止访问该资源（可能是权限）</li>
+<li>404 请求资源不存在</li>
+</ul>
+</li>
+<li>5xx 服务端发生的错误<ul>
+<li>500 笼统的服务端错误</li>
+<li>501 功能还未支持</li>
+<li>502 网关代理错误</li>
+<li>503 服务繁忙，稍后重试</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+
+<p>cache:<br><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/20230306155827.png" alt="304 缓存"></p>
+<p>重定向：<br><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/20230306155737.png" alt="302重定向"></p>
+<h3 id="常见字段"><a href="#常见字段" class="headerlink" title="常见字段"></a>常见字段</h3><ul>
+<li>Host 服务器域名</li>
+<li>Content-Length 数据长度，与 http header 的换行边界解决 tcp 粘包问题</li>
+<li>Connection (keep-alive) </li>
+<li>Content-Type 数据格式</li>
+<li>Accetp 支持数据格式</li>
+<li>Content-Encoding：压缩手段</li>
+<li>Accept-Encoding： 支持压缩手段</li>
+</ul>
+<h3 id="restful-协议"><a href="#restful-协议" class="headerlink" title="restful 协议"></a>restful 协议</h3><ul>
+<li>get 请求资源 （get 一般没有 body）</li>
+<li>post 创建</li>
+<li>put 更新</li>
+<li>delete 删除</li>
+</ul>
+<p>幂等：幂等（Idempotence）是指对同一个操作，若执行一次与执行多次的效果是相同的，就称该操作是幂等的。</p>
+<p>换句话说，如果对于任意给定的输入，多次执行某个操作的结果都是一样的，那么该操作就是幂等的。简单来说，重复的操作结果不会发生变化或者不会产生二次影响的操作就是幂等的。</p>
+<p>所以 put 和 get 应该是幂等的。</p>
+<h3 id="http-缓存"><a href="#http-缓存" class="headerlink" title="http 缓存"></a>http 缓存</h3><ul>
+<li><p>强制缓存</p>
+<ul>
+<li>通过 cache-control （相对时间）和 expires （绝对时间）来决定是否使用绝对缓存。</li>
+<li>from memory cache</li>
+<li>from disk cache<br>  <img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/20230306105302.png"><blockquote>
+<p>cache-control 相对 expires 更灵活，所以 cache-control 在强制缓存优先级更高。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>协议缓存</p>
+<ul>
+<li>If-Modified-Since + Last-Modified<br>  通过  Last-Modified 是否过期，过期返回 200 和新资源；未过期返回 304，客户端使用缓存资源。</li>
+<li>If-None-Match + ETag<br>  通过客户端上传的 ETag 与服务端的 ETag 比较，判断资源是否被修改，被修改则返回 200 和新资源；反之返回304。<blockquote>
+<p>ETag 对于 Last-Modified 来说更能保证客户端使用的缓存资源是最新的，且粒度更细（Last-Modified 的粒度为 1s）所以协议缓存 ETag 优先级更高</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>由于强制缓存是由浏览器来决定的，即浏览器判断 cache-control 或 expires 是否过期来决定是否使用缓存。所以默认先判断是否进行强制缓存，再请求服务器判断是否使用协议缓存。 </p>
+<p> 浏览器调试技巧<br> ctrl + r 可以刷新浏览器，但是此时还是会走缓存的;如果不想走缓存，可以使用 ctrl + shift + r.</p>
+<h3 id="http-加密-ssl-x2F-tls"><a href="#http-加密-ssl-x2F-tls" class="headerlink" title="http 加密 (ssl&#x2F;tls)"></a>http 加密 (ssl&#x2F;tls)</h3><h3 id="进化史"><a href="#进化史" class="headerlink" title="进化史"></a>进化史</h3><ol>
+<li>http 0.9</li>
+<li>http 1.0</li>
+<li>http 1.1</li>
+<li>http2 (基于 https)</li>
+<li>http3 (quic)</li>
+</ol>
+<p>参考资料:<br><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2016/08/http.html">http://www.ruanyifeng.com/blog/2016/08/http.html</a><br><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/19840.html">https://coolshell.cn/articles/19840.html</a><br><a target="_blank" rel="noopener" href="https://xiaolincoding.com/network/2_http/http_interview.html#http-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">https://xiaolincoding.com/network/2_http/http_interview.html#http-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/http/" rel="tag"># http</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/12/17/%E8%AE%A4%E8%AF%86go%E7%9A%84time%E5%8C%85/" rel="prev" title="认识go的time包（1）——坑人的format">
+                  <i class="fa fa-chevron-left"></i> 认识go的time包（1）——坑人的format
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/03/06/http1/" rel="next" title="http1">
+                  http1 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yeebing</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
