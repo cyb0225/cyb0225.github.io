@@ -20,11 +20,11 @@
 
 
 
-<link rel="canonical" href="http://example.com/2023/03/06/http1/">
+<link rel="canonical" href="http://example.com/2023/03/06/network/http1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2023/03/06/http1/","path":"2023/03/06/http1/","title":"http1"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"http://example.com/2023/03/06/network/http1/","path":"2023/03/06/network/http1/","title":"http1"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>http1 | Yeebing Blog</title>
@@ -108,18 +108,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -146,7 +146,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/06/http1/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/06/network/http1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -176,7 +176,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-03-06 23:04:20 / 修改时间：23:07:14" itemprop="dateCreated datePublished" datetime="2023-03-06T23:04:20+08:00">2023-03-06</time>
+      <time title="创建时间：2023-03-06 23:04:20 / 修改时间：23:23:32" itemprop="dateCreated datePublished" datetime="2023-03-06T23:04:20+08:00">2023-03-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -202,6 +202,8 @@
 <li>只支持 Get 方法，没用请求头和相应头</li>
 <li>最简单的 Request – Response 模式</li>
 </ul>
+<span id="more"></span>
+
 <h3 id="http-1-0"><a href="#http-1-0" class="headerlink" title="http 1.0"></a>http 1.0</h3><ul>
 <li>请求加入HTTP版本号 <code>GET /coolshell/index.html HTTP/1.0</code></li>
 <li>以及请求头和相应头 header</li>
@@ -217,8 +219,6 @@
 </li>
 </ul>
 <p>http 1.0 有一个很大的劣势就是每次 HTTP 请求都需要重新构建 TCP 连接，TCP 连接需要进行三次握手，创建成本很高，导致 HTTP 请求响应很慢。</p>
-<span id="more"></span>
-
 <h3 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h3><p>优化思路：</p>
 <ol>
 <li>避免 HTTP 请求<br> 使用 HTTP Cache 缓存机制。<ul>
@@ -302,11 +302,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/03/06/%E5%88%9D%E5%A7%8Bhttp/" rel="prev" title="初始http">
+                <a href="/2023/03/06/network/%E5%88%9D%E5%A7%8Bhttp/" rel="prev" title="初始http">
                   <i class="fa fa-chevron-left"></i> 初始http
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/03/07/network/http2/" rel="next" title="http1">
+                  http1 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
