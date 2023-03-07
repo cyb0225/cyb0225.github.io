@@ -258,7 +258,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-03-06 23:04:20 / 修改时间：23:23:32" itemprop="dateCreated datePublished" datetime="2023-03-06T23:04:20+08:00">2023-03-06</time>
+      <time title="创建时间：2023-03-06 23:04:20 / 修改时间：23:51:45" itemprop="dateCreated datePublished" datetime="2023-03-06T23:04:20+08:00">2023-03-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -284,6 +284,21 @@
 <li>只支持 Get 方法，没用请求头和相应头</li>
 <li>最简单的 Request – Response 模式</li>
 </ul>
+<h3 id="http-1-0"><a href="#http-1-0" class="headerlink" title="http 1.0"></a>http 1.0</h3><ul>
+<li>请求加入HTTP版本号 <code>GET /coolshell/index.html HTTP/1.0</code></li>
+<li>以及请求头和相应头 header</li>
+<li>新增 HTTP Status Code 相应状态码</li>
+<li>支持 Content-Type 传递多种类型的文件</li>
+<li>新增 <code>POST</code> 方法<br>优势：</li>
+<li>header 可以使元数据与业务数据解耦</li>
+<li>版本管理，方便升级和演进</li>
+<li>Status Code 的出现可以让请求双方以及第三方的监控或管理程序有了统一的认识。最关键是还是控制错误和业务错误的分离。<blockquote>
+<p>目前很多公司为了方便都放弃了使用 HTTP Status Code 来区别不同的相应类型，而一律使用业务状态码（比如 go-zero 的错误默认都用 200 返回）。</p>
+<p>在我的视角下来看，我们可以不完全参照 HTTP Status Code 来返回，因为它无法完全表示我们业务需要用到的错误类型。但是，我们可以将业务错误使用 HTTP Status Code 进行分类。例如，前端参数有误，返回 400；用户无权限访问，返回 403，查询数据不存在，返回 404。具体的错误描述可以在 body 里封装一个 code 和 msg 来传递。</p>
+</blockquote>
+</li>
+</ul>
+<p>http 1.0 有一个很大的劣势就是每次 HTTP 请求都需要重新构建 TCP 连接，TCP 连接需要进行三次握手，创建成本很高，导致 HTTP 请求响应很慢。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2023/03/06/network/http1/#more" rel="contents">
