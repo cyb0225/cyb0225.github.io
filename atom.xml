@@ -3,11 +3,11 @@
   <title>Yeebing Blog</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://www.yeebing.cn/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://www.yeebing.cn/"/>
   <updated>2023-03-07T07:24:39.565Z</updated>
-  <id>http://example.com/</id>
+  <id>https://www.yeebing.cn/</id>
   
   <author>
     <name>yeebing</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>HTTP1.1</title>
-    <link href="http://example.com/2023/03/06/network/http1.1/"/>
-    <id>http://example.com/2023/03/06/network/http1.1/</id>
+    <link href="https://www.yeebing.cn/2023/03/06/network/http1.1/"/>
+    <id>https://www.yeebing.cn/2023/03/06/network/http1.1/</id>
     <published>2023-03-06T15:04:20.000Z</published>
     <updated>2023-03-07T07:24:39.565Z</updated>
     
@@ -33,17 +33,17 @@
     
     
     
-    <category term="计算机网络" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://www.yeebing.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="HTTP" scheme="http://example.com/tags/HTTP/"/>
+    <category term="HTTP" scheme="https://www.yeebing.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>初始HTTP</title>
-    <link href="http://example.com/2023/03/06/network/%E5%88%9D%E5%A7%8Bhttp/"/>
-    <id>http://example.com/2023/03/06/network/%E5%88%9D%E5%A7%8Bhttp/</id>
+    <link href="https://www.yeebing.cn/2023/03/06/network/%E5%88%9D%E5%A7%8Bhttp/"/>
+    <id>https://www.yeebing.cn/2023/03/06/network/%E5%88%9D%E5%A7%8Bhttp/</id>
     <published>2023-03-06T15:00:13.000Z</published>
     <updated>2023-03-07T07:24:17.185Z</updated>
     
@@ -63,17 +63,17 @@
     
     
     
-    <category term="计算机网络" scheme="http://example.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    <category term="计算机网络" scheme="https://www.yeebing.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="HTTP" scheme="http://example.com/tags/HTTP/"/>
+    <category term="HTTP" scheme="https://www.yeebing.cn/tags/HTTP/"/>
     
   </entry>
   
   <entry>
     <title>go time包为什么饱受争议？</title>
-    <link href="http://example.com/2022/12/17/go/time/"/>
-    <id>http://example.com/2022/12/17/go/time/</id>
+    <link href="https://www.yeebing.cn/2022/12/17/go/time/"/>
+    <id>https://www.yeebing.cn/2022/12/17/go/time/</id>
     <published>2022-12-17T14:04:12.000Z</published>
     <updated>2023-03-07T08:25:52.412Z</updated>
     
@@ -90,10 +90,10 @@
     
     
     
-    <category term="Go标准库" scheme="http://example.com/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/"/>
+    <category term="Go标准库" scheme="https://www.yeebing.cn/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/"/>
     
     
-    <category term="time" scheme="http://example.com/tags/time/"/>
+    <category term="time" scheme="https://www.yeebing.cn/tags/time/"/>
     
   </entry>
   
