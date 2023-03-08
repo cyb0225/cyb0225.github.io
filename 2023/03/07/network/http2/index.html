@@ -29,6 +29,9 @@
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>HTTP2 | Yeebing Blog</title>
   
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WH81EB3YR"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-6WH81EB3YR","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
 
 
 
@@ -186,7 +189,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-03-07 20:45:20 / 修改时间：20:57:50" itemprop="dateCreated datePublished" datetime="2023-03-07T20:45:20+08:00">2023-03-07</time>
+      <time title="创建时间：2023-03-07 20:45:20 / 修改时间：23:25:03" itemprop="dateCreated datePublished" datetime="2023-03-07T20:45:20+08:00">2023-03-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -244,7 +247,7 @@
 <p> 而 HTTP2 客户端支持发送 RST_STREAM 帧和新数据重置发错的数据。</p>
 </li>
 <li><p><strong>服务端推送</strong></p>
-<p>客户端请求资源X时，服务端很可能知道他下个要请求的资源是什么，会在发送完资源X后把相关的资源共同推送给客户端。客户端可以通过发送 RST_STREAM 帧来中断此次推送。</p>
+<p>客户端请求资源X时，服务端很可能知道他下个要请求的资源是什么，会在发送完资源X后把相关的资源（可能是依赖关系）共同推送给客户端。客户端可以通过发送 RST_STREAM 帧来中断此次推送。</p>
 <blockquote>
 <p>HTTP2 的服务端推送能否代替 Websocket 的双工通信？<br>答：显然是不能的。</p>
 </blockquote>
@@ -260,6 +263,8 @@
 <p>HTTP&#x2F;2 是基于 TCP 协议来传输数据的，TCP 是字节流协议，TCP 层必须保证收到的字节 数据是完整且连续的，这样内核才会将缓冲区里的数据返回给 HTTP 应用，那么当「前 1 个 字节数据」没有到达时，后收到的字节数据只能存放在内核缓冲区里，只有等到这 1 个字节 数据到达时，HTTP&#x2F;2 应用层才能从内核中拿到数据，这就是 HTTP&#x2F;2 线头阻塞问题。</p>
 </li>
 <li><p>HTTP2 基于 TLS 协议，每次创建连接需要进行 6 次握手。</p>
+</li>
+<li><p>一个 TCP 连接是由四元组(源 IP 地址，源端口，目标 IP 地址，目标端口)确定的，这意味着如果 IP 地址或者端口变动了，就会导致需要 TCP 与 TLS 重新握手，这不利于移动设备切换网络的场景，比如 4G 网络环境切换成 WIFI。</p>
 </li>
 </ol>
 <h3 id="HPACK-算法"><a href="#HPACK-算法" class="headerlink" title="HPACK 算法"></a>HPACK 算法</h3><ul>
@@ -291,7 +296,7 @@
 <p>设计一棵树，使使用率越高的节点越靠近根的位置。按照先序遍历，左孩子标0，右孩子标1，对树的所有节点进行编码。这样越靠近根的节点所占字节数就越少。</p>
 </li>
 </ul>
-<p>参考资料：<br><a target="_blank" rel="noopener" href="https://xiaolincoding.com/network/2_http/http2.html">https://xiaolincoding.com/network/2_http/http2.html</a><br><a target="_blank" rel="noopener" href="https://github.com/bagder/http2-explained">https://github.com/bagder/http2-explained</a><br><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/19840.html">https://coolshell.cn/articles/19840.html</a><br><a target="_blank" rel="noopener" href="https://web.dev/performance-http2/">https://web.dev/performance-http2/</a></p>
+<p>参考资料：<br><a target="_blank" rel="noopener" href="https://xiaolincoding.com/network/2_http/http2.html">https://xiaolincoding.com/network/2_http/http2.html</a><br><a target="_blank" rel="noopener" href="https://github.com/bagder/http2-explained">https://github.com/bagder/http2-explained</a><br><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/19840.html">https://coolshell.cn/articles/19840.html</a><br><a target="_blank" rel="noopener" href="https://web.dev/performance-http2/">https://web.dev/performance-http2/</a><br><a target="_blank" rel="noopener" href="https://toutiao.io/posts/fcy5x49/preview">https://toutiao.io/posts/fcy5x49/preview</a></p>
 
     </div>
 
