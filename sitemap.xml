@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yeebing.cn/2023/03/09/go/%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD/</loc>
+    
+    <lastmod>2023-03-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yeebing.cn/2023/03/07/network/http2/</loc>
     
     <lastmod>2023-03-07</lastmod>
@@ -58,7 +67,7 @@
 
   <url>
     <loc>https://www.yeebing.cn/</loc>
-    <lastmod>2023-03-08</lastmod>
+    <lastmod>2023-03-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -66,14 +75,28 @@
   
   <url>
     <loc>https://www.yeebing.cn/tags/HTTP/</loc>
-    <lastmod>2023-03-08</lastmod>
+    <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yeebing.cn/tags/time/</loc>
-    <lastmod>2023-03-08</lastmod>
+    <lastmod>2023-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yeebing.cn/tags/go-zero/</loc>
+    <lastmod>2023-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yeebing.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -82,14 +105,21 @@
   
   <url>
     <loc>https://www.yeebing.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</loc>
-    <lastmod>2023-03-08</lastmod>
+    <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.yeebing.cn/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/</loc>
-    <lastmod>2023-03-08</lastmod>
+    <lastmod>2023-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yeebing.cn/categories/go-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
