@@ -189,7 +189,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-03-09 09:32:00 / 修改时间：09:34:01" itemprop="dateCreated datePublished" datetime="2023-03-09T09:32:00+08:00">2023-03-09</time>
+      <time title="创建时间：2023-03-09 09:32:00 / 修改时间：09:37:47" itemprop="dateCreated datePublished" datetime="2023-03-09T09:32:00+08:00">2023-03-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -214,6 +214,8 @@
         <p><strong>优雅关闭仅支持 Linux 平台</strong>，利用捕获信号量 SIGINT 和 SIGTERM 后执行函数清理，睡眠一段时间后强制关闭。</p>
 <p><strong>go http shutdown 和 close 的区别？</strong><br><a target="_blank" rel="noopener" href="https://www.dawxy.com/article/golang-tcp-shutdown-%E5%92%8C-close-%E7%9A%84%E5%8C%BA%E5%88%AB/">https://www.dawxy.com/article/golang-tcp-shutdown-%E5%92%8C-close-%E7%9A%84%E5%8C%BA%E5%88%AB/</a></p>
 <p>close 是直接关闭，shutdown 是优雅关闭。</p>
+<span id="more"></span>
+
 <h3 id="优雅关闭的一些思考"><a href="#优雅关闭的一些思考" class="headerlink" title="优雅关闭的一些思考"></a>优雅关闭的一些思考</h3><p>即我们应用的server应该是最早被关闭的，接着是一些我们注册在 pkg 中的依赖，最后是基础依赖（如日志）</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/zeromicro/go-zero">go-zero</a> 对此做了一个设计，我们可以进行参考。</p>
 <p>首先，他分成了 windows 和 linux 两种 build 文件，在 windows 里的优雅关闭什么都不做，我们直接看 Linux 版本的实现。</p>

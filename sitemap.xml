@@ -81,13 +81,6 @@
   </url>
   
   <url>
-    <loc>https://www.yeebing.cn/tags/time/</loc>
-    <lastmod>2023-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yeebing.cn/tags/go-zero/</loc>
     <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
@@ -96,6 +89,13 @@
   
   <url>
     <loc>https://www.yeebing.cn/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2023-03-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yeebing.cn/tags/time/</loc>
     <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -111,14 +111,14 @@
   </url>
   
   <url>
-    <loc>https://www.yeebing.cn/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/</loc>
+    <loc>https://www.yeebing.cn/categories/go-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
     <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.yeebing.cn/categories/go-%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <loc>https://www.yeebing.cn/categories/Go%E6%A0%87%E5%87%86%E5%BA%93/</loc>
     <lastmod>2023-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
