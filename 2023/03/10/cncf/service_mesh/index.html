@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha256-Z1K5uhUaJXA7Ll0XrZ/0JhX4lAtZFpT6jkKrEDT0drU=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.yeebing.cn","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.14.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+
+
+<link rel="canonical" href="https://www.yeebing.cn/2023/03/10/cncf/service_mesh/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-Hans","comments":true,"permalink":"https://www.yeebing.cn/2023/03/10/cncf/service_mesh/","path":"2023/03/10/cncf/service_mesh/","title":"初识Service Mesh"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>初识Service Mesh | Yeebing Blog</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6WH81EB3YR"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-6WH81EB3YR","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+
+  <script async defer data-website-id="" src=""></script>
+
+  <script defer data-domain="" src=""></script>
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Yeebing Blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Yeebing Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFService-Mesh"><span class="nav-number">1.</span> <span class="nav-text">什么是Service Mesh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Mesh-%E8%A7%A3%E5%86%B3%E4%BA%86%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">Service Mesh 解决了什么问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E5%89%8D%E4%B8%BB%E6%B5%81%E7%9A%84-Service-Mesh-%E6%96%B9%E6%A1%88%E7%AE%80%E8%BF%B0"><span class="nav-number">3.</span> <span class="nav-text">目前主流的 Service Mesh 方案简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Mesh-%E4%B8%8D%E6%98%AF%E9%93%B6%E5%BC%B9"><span class="nav-number">4.</span> <span class="nav-text">Service Mesh 不是银弹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runtime"><span class="nav-number">5.</span> <span class="nav-text">Runtime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Service-Mesh-%E6%9C%AA%E6%9D%A5%E5%8F%91%E5%B1%95%E7%9A%84%E6%96%B9%E5%90%91"><span class="nav-number">6.</span> <span class="nav-text">Service Mesh 未来发展的方向</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="yeebing"
+      src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303071617186.png">
+  <p class="site-author-name" itemprop="name">yeebing</p>
+  <div class="site-description" itemprop="description">share golang coding</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/cyb0225" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;cyb0225" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:cyb2103651941@gm" title="E-Mail → mailto:cyb2103651941@gm" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="https://www.yeebing.cn/2023/03/10/cncf/service_mesh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303071617186.png">
+      <meta itemprop="name" content="yeebing">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yeebing Blog">
+      <meta itemprop="description" content="share golang coding">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="初识Service Mesh | Yeebing Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初识Service Mesh
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-03-10 00:15:50 / 修改时间：00:16:24" itemprop="dateCreated datePublished" datetime="2023-03-10T00:15:50+08:00">2023-03-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%BA%91%E5%8E%9F%E7%94%9F/" itemprop="url" rel="index"><span itemprop="name">云原生</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="什么是Service-Mesh"><a href="#什么是Service-Mesh" class="headerlink" title="什么是Service Mesh"></a>什么是Service Mesh</h3><p>微服务架构下，要想实现熔断限流、trace 等基础组件，每门语言都要依靠自己的微服务框架。而在 Service Mesh 的场景下，这些可以抽离出来的功能会被放到另一个进程处理，这个进程成为 sidecar。sidecar 会暴露（HTTP，RPC 等）通信接口来使应用程序调用。应用程序只需要在 sdk 层实现对应的接口即可。熔断限流、trace 等功能的实现就不依赖于语言的 sdk 了，实现了统一。</p>
+<blockquote>
+<p>有点类似 MySQL，他是用 cpp 写的，那么其他语言要想调用他的服务，就是通过网络远程调用，有一个统一的 TCP 编码方式。</p>
+</blockquote>
+<p>那么一个 Service Mesh 的服务框架就是下面这种样子。绿色的是应用程序，蓝色的是sidecar。</p>
+<p><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303100013926.png"></p>
+<h3 id="Service-Mesh-解决了什么问题"><a href="#Service-Mesh-解决了什么问题" class="headerlink" title="Service Mesh 解决了什么问题"></a>Service Mesh 解决了什么问题</h3><ul>
+<li>升级成本高，每个服务都与 SDK 绑定，升级 SDK 就需要重启服务。</li>
+<li>SDK 版本不统一</li>
+<li>异构语言治理能力弱。每个语言都需要实现一套类似的逻辑实现链路追踪、熔断限流等微服务的基础功能，耗用大量人力维护升级SDK。</li>
+</ul>
+<p><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303092211941.png"></p>
+<p>Service Mesh 是实现一个 sidecar 来进行负载均衡、熔断限流和服务路由等，特定语言只需要实现与 sidecar 之间的通信协议 SDK 即可，如 HTTP, RPC，通过远程调用将这些通用功能进行解耦。</p>
+<p><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303092210358.png"></p>
+<h3 id="目前主流的-Service-Mesh-方案简述"><a href="#目前主流的-Service-Mesh-方案简述" class="headerlink" title="目前主流的 Service Mesh 方案简述"></a>目前主流的 Service Mesh 方案简述</h3><blockquote>
+<p>什么是数据面和控制面？</p>
+</blockquote>
+<p><strong>数据面：</strong></p>
+<p>类似 nginx，代理转发，并支持微服务的熔断限流、trace等基础功能。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/envoyproxy/envoy">envoy</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mosn/mosn">mosn</a></p>
+<p><strong>控制面：</strong></p>
+<p>控制数据面的配置，流量管理、配置管理、安全管理、策略执行等。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/istio/istio">Istio</a> </p>
+<h3 id="Service-Mesh-不是银弹"><a href="#Service-Mesh-不是银弹" class="headerlink" title="Service Mesh 不是银弹"></a>Service Mesh 不是银弹</h3><ul>
+<li>通信协议有很多种，所以在不同语言的 sdk 都要实现序列化方式，sdk 还是不够薄。</li>
+<li>额外的网络通信开销，service mesh 作为网关转发了一次网络请求。</li>
+<li>一个服务需要部署两个进程，增大运维压力。</li>
+</ul>
+<h3 id="Runtime"><a href="#Runtime" class="headerlink" title="Runtime"></a>Runtime</h3><p><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303092227276.png"></p>
+<p>Service Mesh 是负责将服务治理、链路追踪等抽象到 sidecar，是一个网关。</p>
+<p>runtime 将微服务所需的各种能力都抽离成 api，程序只需要调用 api 即可。</p>
+<p><strong>runtime</strong>:<br><a target="_blank" rel="noopener" href="https://github.com/dapr/dapr">https://github.com/dapr/dapr</a><br><a target="_blank" rel="noopener" href="https://github.com/mosn/layotto">https://github.com/mosn/layotto</a></p>
+<blockquote>
+<p>layotto 是蚂蚁开源的项目，里面借鉴了 dapr 的很多 api 设计，文档挺丰富的。</p>
+<p>我觉得学习这种高度抽象的理念不仅可以用在这个 runtime 领域，在编写 go 程序的时候也可以使用 interface 来抽象，方便后面组件的替换。感觉有点类似 go-micro 的设计了。</p>
+</blockquote>
+<h3 id="Service-Mesh-未来发展的方向"><a href="#Service-Mesh-未来发展的方向" class="headerlink" title="Service Mesh 未来发展的方向"></a>Service Mesh 未来发展的方向</h3><p><strong>巨无霸 mesh</strong> </p>
+<p>感觉有点类似 runtime 的形式</p>
+<p><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303092221558.png"></p>
+<p>将 DB、MQ、Cache 等都下沉到 Sidecar 中解决，应用程序采用远程通信调用相关接口。<br>缺点：</p>
+<ul>
+<li>sidecar 的维护</li>
+<li>基础设施强绑定，sdk 也是要依靠基础设施的功能设计的。</li>
+<li>业务逻辑的抽象，需要考虑尽可能多的业务 （layotto 中做了很多）</li>
+</ul>
+<p><strong>proxyless</strong></p>
+<p>考虑到 service mesh 代理导致额外的网络消耗问题，在 service 中支持控制面的规范，应用程序负责熔断等操作，避免额外的网络代理。</p>
+<p><img src="https://kamaoj-1312361098.cos.ap-guangzhou.myqcloud.com/img/kamaoj/202303092351405.jpg"></p>
+<p>layotto 会议中的 Webassembly 技术也是类似的思想。</p>
+<blockquote>
+<p>WASM (Webassemply)，是一种低级字节码，可在多种编程语言中编写，并可在各种应用程序和环境中运行。他可以将多种语言的编译成统一的编码运行。</p>
+</blockquote>
+<p>应用程序通过 webassembly 编译并允许在 mosn 平台上，通过本地调用的方式，运行 runtime 里面的 api。</p>
+<blockquote>
+<p>WASM 不是很了解，不是很清楚他是怎么允许在 mosn 平台上的，也不太清楚为何可以本地调用。这也是 layotto 的一个设想。</p>
+</blockquote>
+<p>参考资料：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1hq4y1L7FY/?vd_source=98936a496641d1c0cfb1a3df11b1973f">https://www.bilibili.com/video/BV1hq4y1L7FY/?vd_source=98936a496641d1c0cfb1a3df11b1973f</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nt4y1X7eT/?spm_id_from=333.337.search-card.all.click">https://www.bilibili.com/video/BV1nt4y1X7eT/?spm_id_from=333.337.search-card.all.click</a><br><a target="_blank" rel="noopener" href="https://cch123.github.io/mosn">https://cch123.github.io/mosn</a><br><a target="_blank" rel="noopener" href="https://philcalcado.com/2017/08/03/pattern_service_mesh.html">https://philcalcado.com/2017/08/03/pattern_service_mesh.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ServiceMesh/" rel="tag"># ServiceMesh</a>
+              <a href="/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag"># 微服务</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/03/09/go/%E4%BC%98%E9%9B%85%E5%85%B3%E9%97%AD/" rel="prev" title="go 优雅关闭">
+                  <i class="fa fa-chevron-left"></i> go 优雅关闭
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yeebing</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"cyb0225/blog-comment","issue_term":"pathname","theme":"github-light"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
