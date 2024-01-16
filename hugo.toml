@@ -1,0 +1,4 @@
+baseURL = 'https://cyb0225.github.io/'
+languageCode = 'en-us'
+title = 'Yeebing'
+theme = 'original'
